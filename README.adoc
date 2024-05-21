@@ -1,0 +1,31 @@
+# Audiovisual Emotion Recognition from Videos
+
+This repository contains code and resources developed for a master's thesis on multimodal emotion recognition. The research focuses on building efficient neural networks that analyze facial expressions and audio cues in videos to recognize emotions. 
+
+**Key Tasks**
+
+The models are evaluated on three affective behavior analysis (ABAW) challenges using the Aff-Wild2 dataset:
+
+1. Expression Recognition (EXPR)
+2. Action Unit (AU) Detection
+3. Valence-Arousal (VA) Estimation
+
+**Repository Structure**
+
+* **`dataset.py`:**  Preprocesses and prepares the Aff-Wild2 dataset for model input.
+* **`extract_features.py`:** 
+** Extracts visual features using the EfficientNet-B2 model from the HSEmotion library.
+** Extracts audio features using VGGish and Wav2Vec2.
+* **`metrics.py`:** Calculates performance metrics (F1 score, Mean CCC).
+* **`models.py`:**  Implements the core architectures for multimodal fusion:
+** Early fusion with Transformer encoder.
+** Early fusion with Multilayer Perceptrons (MLPs).
+* **`train_test.py`:**  Contains scripts for model training and evaluation on the Aff-Wild2 dataset.
+* **`smooth_prediction.py`:**  Implements smoothing techniques (mean and median filters) for prediction refinement.
+* **`adaptive_frame_rate.py`:** Implements an adaptive frame rate strategy for computational efficiency.
+* **`audiovisual_emo_reg.ipynb`:** Jupyter Notebook demonstrating the complete workflow (preprocessing to evaluation).
+* **`best_model/`:**  Folder for saving the best-performing models for each task.
+
+**Results**
+
+Below table presents a summary of the results achieved on the Aff-Wild2 validation set using different feature combinations and model architectures.  Detailed analysis and discussion can be found in the accompanying thesis document.

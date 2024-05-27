@@ -14,7 +14,7 @@ The models are evaluated on three affective behavior analysis (ABAW) challenges 
 
 * **`dataset.py`:**  Preprocesses and prepares the Aff-Wild2 dataset for model input.
 * **`extract_features.py`:** 
-** Extracts visual features using the https://github.com/av-savchenko/face-emotion-recognition/blob/main/models/affectnet_emotions/enet_b2_8_best.pt[EfficientNet-B2] model from the https://github.com/av-savchenko/face-emotion-recognition/tree/main[HSEmotion library].
+** Extracts visual features using the pretrained https://github.com/av-savchenko/face-emotion-recognition/blob/main/models/affectnet_emotions/enet_b2_8_best.pt[EfficientNet-B2] and https://github.com/av-savchenko/face-emotion-recognition/blob/main/models/affectnet_emotions/enet_b0_8_va_mtl.pt[EfficientNet-B0] models from the https://github.com/av-savchenko/face-emotion-recognition/tree/main[HSEmotion library].
 ** Extracts audio features using https://github.com/tensorflow/models/tree/master/research/audioset/vggish[VGGish] and https://github.com/facebookresearch/fairseq/tree/main/fairseq/models/wav2vec[Wav2Vec2].
 * **`metrics.py`:** Calculates performance metrics (F1 score, Mean CCC).
 * **`models.py`:**  Implements the core architectures for multimodal fusion:

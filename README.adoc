@@ -20,9 +20,6 @@ The models are evaluated on three affective behavior analysis (ABAW) challenges 
 * **`models.py`:**  Implements the core architectures for multimodal fusion:
 ** Early fusion with Transformer encoder.
 ** Early fusion with Multilayer Perceptron (MLP).
-* **`train_test.py`:**  Contains scripts for model training and evaluation on the Aff-Wild2 dataset.
-* **`smooth_prediction.py`:**  Implements smoothing techniques (mean and median filters) for prediction refinement.
-* **`adaptive_frame_rate.py`:** Implements an adaptive frame rate strategy for computational efficiency.
 * **`audiovisual_emo_reg.ipynb`:** Jupyter Notebook demonstrating the complete workflow.
 * **`testing.ipynb`:** Jupyter Notebook demonstrating the evaluation.
 * **`best_model/`:**  Folder for saving the best-performing models for each task.

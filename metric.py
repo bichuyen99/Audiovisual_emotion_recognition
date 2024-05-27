@@ -96,25 +96,3 @@ def compute_VA_CCC(x,y):
     ccc2 = CCC_score(x[:,1],y[:,1])
 
     return ccc1,ccc2
-
-# Pearson’s Correlation Coefficient
-def PCC(x,y):
-    x = np.array(x)
-    y = np.array(y)
-    x[x>1] = 1
-    x[x<0] = 0
-    vx = x - np.mean(x)
-    vy = y - np.mean(y)
-    pcc = np.sum(vx * vy) / (np.sqrt(np.sum(vx**2)) * np.sqrt(np.sum(vy**2)))
-    return pcc
-
-def compute_emo_PCC(x,y):
-    x = np.array(x)
-    y = np.array(y)
-    pccs = []
-    for i in range(7):
-        p = PCC(x[:,i],y[:,i])
-        pccs.append(p)
-    pccs = np.array(pccs)
-    mean_pcc = np.mean(pccs)
-    return pccs, mean_pcc

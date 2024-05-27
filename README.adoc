@@ -23,7 +23,8 @@ The models are evaluated on three affective behavior analysis (ABAW) challenges 
 * **`train_test.py`:**  Contains scripts for model training and evaluation on the Aff-Wild2 dataset.
 * **`smooth_prediction.py`:**  Implements smoothing techniques (mean and median filters) for prediction refinement.
 * **`adaptive_frame_rate.py`:** Implements an adaptive frame rate strategy for computational efficiency.
-* **`audiovisual_emo_reg.ipynb`:** Jupyter Notebook demonstrating the complete workflow (preprocessing to evaluation).
+* **`audiovisual_emo_reg.ipynb`:** Jupyter Notebook demonstrating the complete workflow.
+* **`testing.ipynb`:** Jupyter Notebook demonstrating the evaluation.
 * **`best_model/`:**  Folder for saving the best-performing models for each task.
 
 **Results**
@@ -33,13 +34,15 @@ Below table presents a summary of the results achieved on the Aff-Wild2 validati
 [cols="9", options="header"]
 |=======
 | Facial feature extractor | Audio feature extractor | Model                     | EXPR F1 score | Time   | AU F1 score | Time   | VA Mean CCC | Time  
-.8+|EfficientNet-B2 (cropped aligned images)| no   .3+| Transformer Encoder      | 0.31          | 29.5s  | 0.455      | 2.52s  | 0.472       | 1.73s  
-                          | VGGish                                               | 0.316         | 33s    | 0.439      | 2.72   | 0.428       | 1.95s  
-                          | Wav2Vec2                                             | 0.33          | 34.4s  | 0.449      | 2.75s  | 0.561       | 1.85s  
-                          | no                      .3+| Multilayer Perceptron   | 0.327         | 8.93s  | 0.443      | 1.39s  | 0.605       | 773ms  
-                          | VGGish                                               | 0.379         | 11.4s  | 0.423      | 1.53s  | 0.608       | 904ms  
-                         .3+| Wav2Vec2                                           | 0.394         | 12s    | 0.463      | 1.58s  | 0.647       | 1.51s  
-                                            | MLP, smooth all frames    | **0.454**         | 25.64s | **0.496**      | 15.9s  | **0.685**       | 1.022s
-                                                    | MLP, adaptive frame rate | 0.448         | 9.93s  | 0.492      | 10.5s  | 0.685       | 0.53s  
+.9+|EfficientNet-B2 (cropped aligned images)| no   .3+| Transformer Encoder      | 0.31          | 29.5s  | 0.509      | 88s  | 0.324       | 55.2s  
+                          | VGGish                                               | 0.316         | 33s    | 0.502      | 81s  | 0.376       | 57.4s  
+                          | Wav2Vec2                                             | 0.33          | 34.4s  | 0.497      | 89s  | 0.394       | 58.9s  
+                          | no                      .3+| Multilayer Perceptron   | 0.327         | 8.93s  | 0.521      | 52.5s  | 0.415       | 26.9s  
+                          | VGGish                                               | 0.379         | 11.4s  | 0.52      | 48.6s  | 0.444       |   29.4s
+                         .3+| Wav2Vec2                                           | 0.394         | 12s    | 0.513      | 50.3s  | 0.459       | 30.3s  
+                                                     | MLP, smooth all frames    | **0.457**      | 31.65s | 0.525      | 15.73s  | 0.493       | 30.3s
+                                                    | MLP, adaptive frame rate | 0.455         | 13.91s  | -      | -  | -       | -
+                          | Wav2Vec2 + VGGish       | MLP, smooth all frames    | -      | -    | 0.534      | 17.3s  | **0.510**       | 13.6s
+| EfficientNet-B2 + EfficientNet-B0 | VGGish | MLP, smooth all frames           | -       | -   | **0.54** | 22.2s   | -       | -
 |=======
 

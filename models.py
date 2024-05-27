@@ -208,10 +208,19 @@ class MLPModel(nn.Module):
             self.concat_dim = 1536    #1408+128
         elif audio_ft == 'nope':
             self.concat_dim = 1408    #visual only
-        self.activ = nn.ReLU()
-        self.fc1 = nn.Linear(self.concat_dim, 128)
-        self.fc2 = nn.Linear(128, num_classes)
+        self.feat_fc = nn.Conv1d(self.concat_dim, 512, 1, padding=0)
+        self.vhead = nn.Sequential(
+            nn.Linear(512, 128),
+            nn.LeakyReLU(0.1),
+            nn.BatchNorm1d(128),
+            nn.Linear(128, num_classes)
+        )
 
+        self.ahead = nn.Sequential(
+            nn.Linear(self.concat_dim, 128),
+            nn.BatchNorm1d(128),
+            nn.Linear(128, num_classes)
+        )
     def forward(self, vis_feat, aud_feat):
         if aud_feat == None:
             feat = vis_feat
@@ -219,9 +228,9 @@ class MLPModel(nn.Module):
             inputs = [vis_feat]
             inputs.append(aud_feat)
             feat = torch.cat(inputs, dim=1)
-        feat = self.fc1(feat)
-        feat = self.activ(feat)
-        vout = self.fc2(feat)
-        aout = self.fc2(feat)
+        vfeat = self.feat_fc(torch.transpose(feat,0,1))
+        vfeat = torch.transpose(vfeat,0,1)
+        vout = self.vhead(vfeat)
+        aout = self.ahead(feat)
 
         return vout, aout, torch.tanh(vout), torch.tanh(aout)

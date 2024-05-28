@@ -37,7 +37,7 @@ Below table presents a summary of the results achieved on the Aff-Wild2 validati
                           | no                      .3+| Multilayer Perceptron   | 0.327         | 8.93s  | 0.521      | 52.5s  | 0.415       | 26.9s  
                           | VGGish                                               | 0.379         | 11.4s  | 0.52      | 48.6s  | 0.444       |   29.4s
                          .3+| Wav2Vec2                                           | 0.394         | 12s    | 0.513      | 50.3s  | 0.459       | 30.3s  
-                                                     | MLP, smooth all frames    | **0.457**      | 31.65s | 0.525      | 15.73s  | 0.493       | 30.3s
+                                                     | MLP, smooth all frames    | **0.457**      | 27.9s | 0.525      | 15.73s  | 0.493       | 30.3s
                                                     | MLP, adaptive frame rate | 0.455         | 13.91s  | -      | -  | -       | -
                           | Wav2Vec2 + VGGish       | MLP, smooth all frames    | -      | -    | 0.534      | 17.3s  | **0.510**       | 13.6s
 | EfficientNet-B2 + EfficientNet-B0 | VGGish | MLP, smooth all frames           | -       | -   | **0.54** | 22.2s   | -       | -
